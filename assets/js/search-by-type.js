@@ -1,3 +1,6 @@
+//////////////////////////////////////////////////////////////
+// NOTE - this file will be merged with search-type-button.js
+
 //DEPENDENCIES
 const typeInput = $('#search-type-btn');
 const submitSearchBtn = $('#submit-search-btn');
@@ -9,8 +12,8 @@ const submitSearchBtn = $('#submit-search-btn');
 function searchByType(event) {
     event.preventDefault();
     
-    log(typeInput.val());//?remove
-    fetch(POKEAPI.URL_SEARCH_BY_TYPE)
+    log(`${POKEAPI.URL_SEARCH_BY_TYPE}${typeInput.val()}`);//?remove
+    fetch(`POKEAPI.URL_SEARCH_BY_TYPE${typeInput.val()}`)
     .then(function (response) {
       return response.json();
     })
