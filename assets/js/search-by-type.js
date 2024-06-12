@@ -1,0 +1,1 @@
+alert(POKEAPI.URL_SEARCH_BY_TYPE);
