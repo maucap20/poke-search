@@ -1,3 +1,3 @@
-$('#to-index').on('click', () => {
-    window.history.back();
+$('#back-button').on('click', () => {
+    window.location.assign("index.html");
 });
