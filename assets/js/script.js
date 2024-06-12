@@ -18,7 +18,7 @@ const callPokemonTCGAPI = function () {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error(`Error: ${response.statusText}`);
+        alert(`Error: ${response.statusText}`);
       }
     })
     .then(function (data) {
@@ -37,7 +37,6 @@ const displayCardData = function (data) {
     <h2>${card.name}</h2>
     <img src="${card.images.small}" alt="${card.name}">
     <p>Set: ${card.set.name}</p>
-    <p>Type: ${card.types.join(', ')}</p>
     <p>Rarity: ${card.rarity}</p>
   `;
   searchResultsEl.innerHTML = html;
