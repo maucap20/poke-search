@@ -19,20 +19,64 @@
 
     </header> 
 
-    <section>
+    <!-- <section>
         This is a box for background story of the pokemon
-    </section>
+    </section> -->
 
     <!-- Section for photo, pokedex data, training data, base stats, type defenses area -->
     <section>
-        <div>
-            <img src=""  alt="Pokemon image" />
-        </div>
+        <section id = 'photo-box'>
+            <img src = "./assets/images/Pokémon_Bulbasaur_art.png" alt="Pokemon photo">
+            
+        </section>
 
         <!-- Location to add pokedex data -->
         <div id = "pokedex-data">
             <h2>Pokedex Data</h2>
-            Add pokedex-data after reading data from server API  
+            <!--Add pokedex-data after reading data from server API   -->
+            <table id="pokedex-data-table">
+        
+                <tbody>
+                    <tr>
+                        <th>National No.</th>
+                        <td>
+                            0001
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Type</th>
+                        <td>
+                            Grass Poison
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Species</th>
+                        <td>
+                            Seed Pokemon
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Height</th>
+                        <td>
+                            0.7m
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Weight</th>
+                        <td>
+                            6.9kg
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Abilities</th>
+                        <td>
+                            Overgrow, Chlorophyll
+                        </td>
+                    </tr>
+                </tbody>
+                
+              </table>
+              
         </div>
 
         <!-- Location to add Training data -->
@@ -64,12 +108,12 @@
     <footer>
         Add footer data if nesessary(Maybe navigate to prev/next pokemon)
     </footer>
-    
-    <!-- jquery link to use when needed  -->
+
     <script src= "https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <!-- Link to external JavaScript file for form functionality -->
     <script src= "./assets/js/search-name-button.js"></script>
     <script src= "./assets/js/search-type-button.js"></script>
+    <script src= "./assets/js/button.js"></script>
     <script src= "./assets/js/script.js"></script>
 </body>
 
