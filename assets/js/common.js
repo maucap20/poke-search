@@ -7,7 +7,9 @@ const POKEAPI = {
 }
 
 const STRINGS = {
-    INDEX_IN_LOCAL_STORAGE: "localPokedex"
+    INDEX_IN_LOCAL_STORAGE: "localPokedex",
+    POKEDEX_IN_LOCAL_STORAGE: "localPokedex",
+    RAW_POKEDEX: "rawPokedex"
 }
 // utility functions
 function log(msg) { console.log(msg);}
