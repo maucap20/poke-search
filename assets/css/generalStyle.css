@@ -3,9 +3,7 @@
 /* Universal style setup */
 
 :root{
-    --background-color: skyblue;
     --text-color: black;
-    
   }
 
 * {
@@ -15,11 +13,29 @@
     font-family:Arial, Helvetica, sans-serif;
     color: var(--text-color);
     background-color: var(--background-color);
-
-
-
   }
 
+  /* ************************** */
+  /* temporary styles 
+     used only during development, remove when done */
+
+  /* while we are developing sections, put a border around 
+  some divs just to clarify what's what */
+  header, footer, section div {
+    border: solid 2px lightgray;
+    margin: 1px;
+  }
+
+  /* *********** */
+  /* body styles */
+  #searchResultsTable {
+    border: solid 1px grey;
+    margin: 5px 0 5px 0;
+  }
+
+  .searchResultsHeader{
+    background-color: lightskyblue;
+  }
  
 
 

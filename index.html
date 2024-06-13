@@ -14,34 +14,51 @@
 
     <header>This is the Header</header>
 
-    <h1>PokeSearch</h1>
+    <main>
+        <h1>PokeSearch</h1>
+        <section>
+            <div>
+                <h2>Search buttons</h2>
+                <form id = "search-name-form">
+                    <input type="text" name="Search-Name" placeholder = "Search Pokemon Name">
+                    <button type="submit" id="Search-Name-Btn">Search Name</button>
+                </form>
 
-    <section>
-        <div>
+                <form id = "search-type-form">
+                    <input type="text" name="Search-Type" placeholder = "Search Pokemon Type">
+                    <button type="submit" id="Search-Type-Btn">Search Type</button>
+                </form>
+            </div>
+<!-- TODO: MOVE THIS POC DIV OUT OF THIS PAGE -->
+            <div>
+                <h2>POC - card from TCG API shows up here</h2>
+                <input type="text" id="tcg-pokemon-name" placeholder="Search TCG by key word">
+                <button id="api-call-btn">Display PokemonTCG card</button>
+                <div id="TCG-search-results"></div>
+            </div>
+            <div>
+                <button id="load-pokedex-btn">Load Pokedex and Display</button>
+                <button id="fetch-pokestats-btn">Load Pokedex Stats and Display</button>
+                <table id="searchResultsTable">
+                    <thead class="searchResultsHeader">
+                        <tr>
+                            <td width="80px">Name</td>
+                            <td width="80px">Type</td>
+                            <td width="80px">Total</td>
+                            <td width="80px">HP</td>
+                            <td width="80px">Attack</td>
+                            <td width="80px">Defense</td>
+                        </tr>
+                    </thead>
+                    <tbody id="searchResultsTableBody">
+
+                    </tbody>
+                </table>
+            </div>
+                
             
-            <p>This is the search buttons, two for the name/type</p>
-
-            <form id = "search-name-form">
-                <input type="text" name="Search-Name" placeholder = "Search Pokemon Name">
-                <button type="submit" id="Search-Name-Btn">Search Name</button>
-            </form>
-
-            <form id = "search-type-form">
-                <input type="text" name="Search-Type" placeholder = "Search Pokemon Type">
-                <button type="submit" id="Search-Type-Btn">Search Type</button>
-            </form>
-            <input type="text" id="tcg-pokemon-name" placeholder="Search TCG by key word">
-            <button id="api-call-btn">Display PokemonTCG card</button>
-            <button id="fetch-index-btn">Fetch all to Local Storage</button>
-
-        </div>
-
-        <div>
-            <p>This is where the serach results will be displayed</p>
-            <div id="TCG-search-results"></div>
-        </div>
-    </section>
-
+        </section>
+    </main>
     <footer>
         <p>This is the Footer</p>
     </footer>
@@ -50,9 +67,9 @@
   <script src= "https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <!-- Link to external JavaScript file for form functionality -->
   <script src= "./assets/js/common.js"></script> 
+  <script src="./assets/js/search-by-type.js"></script>
   <script src= "./assets/js/search-name-button.js"></script>
   <script src= "./assets/js/script.js"></script>
-    
 </body>
 
 </html>
