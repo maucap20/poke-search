@@ -56,18 +56,29 @@ header > button{
     font-size: 20px;
     border-collapse: collapse;
     line-height: 1.5;
-    
+
+    /* display: table-row-group; */
+    /* vertical-align: middle; */
+    /* border-color: inherit; */
 }
 
 #pokedex-data-table tr{
     border-bottom: 1px solid black;
+
 }
 
 #pokedex-data-table th{
+    /* padding: 8px */
+
+}
+
+#pokedex-data-table th{
+    /* color: #737373; */
     font-weight: normal;
     text-align: right;
     padding-right: 10px;
 }
+
 #stats-chart {
    font-size: 200px;
 }
@@ -79,4 +90,5 @@ div > h2{
 div > table{
     font-size: 20px;
 }
+
 

@@ -3,10 +3,16 @@ $('#back-button').on('click', () => {
 });
 
 const apiCallBtnEl = document.querySelector('#api-call-btn');
+const tcgPokemonNameInputEl = document.querySelector('#tcg-pokemon-name');
 const searchResultsEl = document.querySelector('#TCG-search-results');
 
 const callPokemonTCGAPI = function () {
-  const apiUrl = 'https://api.pokemontcg.io/v2/cards/xy1-1';
+  const pokemonName = tcgPokemonNameInputEl.value.toLowerCase();
+  if (!pokemonName) {
+    alert('Please enter a Pokémon name for the TCG API');
+    return;
+  }
+  const apiUrl = `https://api.pokemontcg.io/v2/cards?q=name:${pokemonName}`;
   const apiKey = 'b66dce1b-c439-4ca5-a3b3-048672d9ddd1';
 
   fetch(apiUrl, {
@@ -18,7 +24,7 @@ const callPokemonTCGAPI = function () {
       if (response.ok) {
         return response.json();
       } else {
-        alert(`Error: ${response.statusText}`);
+        throw new Error(`Error: ${response.statusText}`);
       }
     })
     .then(function (data) {
@@ -32,16 +38,18 @@ const callPokemonTCGAPI = function () {
 };
 
 const displayCardData = function (data) {
-  const card = data.data;
-  const html = `
-    <h2>${card.name}</h2>
-    <img src="${card.images.small}" alt="${card.name}">
-    <p>Set: ${card.set.name}</p>
-    <p>Rarity: ${card.rarity}</p>
-  `;
-  searchResultsEl.innerHTML = html;
+  if (data.data.length > 0) {
+    const card = data.data[1];
+    const html = `
+      <h2>${card.name}</h2>
+      <img src="${card.images.small}" alt="${card.name}">
+      <p>Set: ${card.set.name}</p>
+      <p>Rarity: ${card.rarity}</p>
+    `;
+    searchResultsEl.innerHTML = html;
+  } else {
+    searchResultsEl.innerHTML = '<p>Could not find pokemon.</p>';
+  }
 };
 
 apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
-
-  
