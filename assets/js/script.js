@@ -1,11 +1,24 @@
 $('#back-button').on('click', () => {
     window.location.assign("index.html");
 });
+// DEPENDENCIES
 
+// TCG - TODO: MOVE THIS TO THE DETAILS PAGE
 const apiCallBtnEl = document.querySelector('#api-call-btn');
 const tcgPokemonNameInputEl = document.querySelector('#tcg-pokemon-name');
 const searchResultsEl = document.querySelector('#TCG-search-results');
+
+// FOR SEARCH and SEARCH RESULTS
 const fetchIndexBtnEl = $('#fetch-index-btn');
+const loadIndexBtnEl = $('#load-index-btn');
+const searchResultsTableBody = $('#searchResultsTableBody');
+
+
+// FUNCTIONS
+
+function loadSearchResultsTable() {
+  fetchIndexOfAllPokemon();
+}
 
 // fetchIndexOfAllPokemon()
 // calls PokeAPI to get an index of All 1302 pokemon (1302)
@@ -65,6 +78,7 @@ const callPokemonTCGAPI = function () {
       console.error(error);
     });
 };
+
 // Displays a card from the TCG API Call 
 // POC: this currently displays in an element called "searchResultsEl". When it moves to the
 // Details page, the element will be called something specific
@@ -86,5 +100,4 @@ const displayCardData = function (data) {
 apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
 
 fetchIndexBtnEl.on('click',fetchIndexOfAllPokemon);
-  
-
+loadIndexBtnEl.on('click',loadSearchResultsTable);
