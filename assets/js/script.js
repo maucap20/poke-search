@@ -6,7 +6,9 @@ const apiCallBtnEl = document.querySelector('#api-call-btn');
 const searchResultsEl = document.querySelector('#TCG-search-results');
 const fetchIndexBtnEl = $('#fetch-index-btn');
 
-// 
+// fetchIndexOfAllPokemon()
+// calls PokeAPI to get an index of All 1302 pokemon (1302)
+// stores them locally so that we can build on them
 function fetchIndexOfAllPokemon() {
   log("fetchIndexOfAllPokemon");
    fetch(POKEAPI.URL_GET_INDEX_OF_ALL, {
@@ -15,19 +17,17 @@ function fetchIndexOfAllPokemon() {
       if (response.ok) {
         return response.json();
       } else {
-        alert(`Error fetching index of all Pokemon: ${response.statusText}`);
+        alert(`Error fetching index of Pokemon: ${response.statusText}`);
       }
     })
     .then(function (data) {
-      console.log(data);
-      console.log(data.results);
-      localStorage.setItem(STRINGS.INDEX_IN_LOCAL_STORAGE, JSON.parse(data.results));
-  //    displayCardData(data);
+      // store the index locally so that we can build on it and don't have to get it again
+      localStorage.setItem(STRINGS.INDEX_IN_LOCAL_STORAGE, JSON.stringify(data.results));
     })
-    // .catch(function (error) {
-    //   alert('Unable to connect to Pokémon TCG API');
-    //   console.error(error);
-    // })
+    .catch(function (error) {
+      alert('Unable to get index of Pokemon from PokeAPI');
+      console.error(error);
+    })
     ;
 }
 
