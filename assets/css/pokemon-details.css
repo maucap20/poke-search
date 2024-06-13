@@ -1,3 +1,20 @@
+*{
+    border-style: dashed;
+    border-color: red;
+}
+
+#photo-box{
+    width: 40%;
+    padding-left: 2%;
+    /* border-right: 1px; */
+  }
+  
+  /* Applicant photo setup */
+  #photo-box > img{
+    object-fit: cover;
+    width: 100%;
+  }
+
 header{
     display: flex;
     justify-content: space-between;
@@ -37,3 +54,4 @@ header > button{
     text-align: right;
     padding-right: 10px;
 }
+

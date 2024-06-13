@@ -1,3 +1,7 @@
+//////////////////////////////////////////////////////////////
+// NOTE - this file will be merged with search-by-type.js
+
+
 const searchtypeFormEl = $('#search-type-form');
 
 searchtypeFormEl.on('submit', function(e) {
