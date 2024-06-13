@@ -33,4 +33,25 @@ header > button{
     margin-left:  auto;
 }
 
+#pokedex-data-table{
+    font-size: 20px;
+    border-collapse: collapse;
+    line-height: 1.5;
+    /* display: table-row-group; */
+    /* vertical-align: middle; */
+    /* border-color: inherit; */
+}
+
+#pokedex-data-table tr{
+    border-bottom: 1px solid black;
+    /* padding: 8px */
+
+}
+
+#pokedex-data-table th{
+    /* color: #737373; */
+    font-weight: normal;
+    text-align: right;
+    padding-right: 10px;
+}
 
