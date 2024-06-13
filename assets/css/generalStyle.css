@@ -15,10 +15,20 @@
     font-family:Arial, Helvetica, sans-serif;
     color: var(--text-color);
     background-color: var(--background-color);
-
-
-
   }
+
+  /* **************************8888888888888888 */
+  /* temporary styles 
+     used only during development, remove when done */
+
+  /* while we are developing sections, put a border around 
+  some divs just to clarify what's what */
+  header, footer, section div {
+    border: solid 2px white;
+    margin: 1px;
+  }
+
+
 
  
 

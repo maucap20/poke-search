@@ -14,34 +14,35 @@
 
     <header>This is the Header</header>
 
-    <h1>PokeSearch</h1>
+    <main>
+        <h1>PokeSearch</h1>
+        <section>
+            <div>
+                
+                <h2>Search buttons</h2>
 
-    <section>
-        <div>
-            
-            <p>This is the search buttons, two for the name/type</p>
+                <form id = "search-name-form">
+                    <input type="text" name="Search-Name" placeholder = "Search Pokemon Name">
+                    <button type="submit" id="Search-Name-Btn">Search Name</button>
+                </form>
 
-            <form id = "search-name-form">
-                <input type="text" name="Search-Name" placeholder = "Search Pokemon Name">
-                <button type="submit" id="Search-Name-Btn">Search Name</button>
-            </form>
+                <form id = "search-type-form">
+                    <input type="text" name="Search-Type" placeholder = "Search Pokemon Type">
+                    <button type="submit" id="Search-Type-Btn">Search Type</button>
+                </form>
+                
+                <button id="fetch-index-btn">Fetch all to Local Storage</button>
 
-            <form id = "search-type-form">
-                <input type="text" name="Search-Type" placeholder = "Search Pokemon Type">
-                <button type="submit" id="Search-Type-Btn">Search Type</button>
-            </form>
-            <input type="text" id="tcg-pokemon-name" placeholder="Search TCG by key word">
-            <button id="api-call-btn">Display PokemonTCG card</button>
-            <button id="fetch-index-btn">Fetch all to Local Storage</button>
+            </div>
 
-        </div>
-
-        <div>
-            <p>This is where the serach results will be displayed</p>
-            <div id="TCG-search-results"></div>
-        </div>
-    </section>
-
+            <div>
+                <h2>POC - card from TCG API shows up here</h2>
+                <input type="text" id="tcg-pokemon-name" placeholder="Search TCG by key word">
+                <button id="api-call-btn">Display PokemonTCG card</button>
+                <div id="TCG-search-results"></div>
+            </div>
+        </section>
+    </main>
     <footer>
         <p>This is the Footer</p>
     </footer>
