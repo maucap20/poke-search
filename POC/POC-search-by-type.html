@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search by Type</title>
+</head>
+<body>
+    <h1>POC for calling the API to search by type</h1>
+    <div>
+        <h2>To test:</h2>
+        <ul>
+            <li>Open the console</li>
+            <li>Enter a numeric type  to call the Seach by Type API.</li>
+            <li>example: 3 is electric. We will add a select control to show users a text value and then provide the numeric value for the API</li>
+            <li>Submit</li>
+            <li>View results in console</li>
+
+            <br>The table below a quick way to show the data returned. It is not intended as a recommendation of how we should structure or style the data 
+            in the real page, though a table might be a good idea.
+        </ul>
+    </div>
+    <div>
+        <input type="text" id="search-type-btn" placeholder="enter numeric type, e.g. 3">
+        <button type="submit" id="submit-search-btn">Submit</button>
+    </div>
+    <div>
+        <table>
+            <thead style="background-color: lightblue;">
+                <tr>
+                    <td width="80px">Name</td>
+                    <td width="80px">Type</td>
+                    <td width="80px">Total</td>
+                    <td width="80px">HP</td>
+                    <td width="80px">Attack</td>
+                    <td width="80px">Defense</td>
+                </tr>
+            </thead>
+            <tbody id="searchResults">
+
+            </tbody>
+        </table>
+
+    </div>
+    <script src="../assets/js/3rd_party/jquery-3.7.1.js"></script>
+    <script src="../assets/js/common.js"></script>
+    <script src="../assets/js/search-by-type.js"></script>
+</body>
+</html>
