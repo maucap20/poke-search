@@ -1,0 +1,17 @@
+*{
+    border-style: dashed;
+    border-color: red;
+}
+
+
+#photo-box{
+    width: 40%;
+    padding-left: 2%;
+    /* border-right: 1px; */
+  }
+  
+  /* Applicant photo setup */
+  #photo-box > img{
+    object-fit: cover;
+    width: 100%;
+  }
