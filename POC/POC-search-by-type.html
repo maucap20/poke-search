@@ -21,8 +21,37 @@
         </ul>
     </div>
     <div>
-        <input type="text" id="search-type-btn" placeholder="enter numeric type, e.g. 3">
-        <button type="submit" id="submit-search-btn">Submit</button>
+        <!-- creation of form section since we might have to classify the text and select inputs differently when connecting it to api -->
+        <form>
+            <input type="text" id="search-type-btn" placeholder="enter numeric type, e.g. 3">
+            <button type="submit" id="submit-search-btn">Submit</button>
+        </form>
+
+        <form>
+            <select type="text" name="Search-Type">
+                <option value> - All - </option>
+                <option value = "type-normal">Normal</option>
+                <option value = "type-fire">Fire</option>
+                <option value = "type-water">Water</option>
+                <option value = "type-electric">Electric</option>
+                <option value = "type-grass">Grass</option>
+                <option value = "type-ice">Ice</option>
+                <option value = "type-fighting">Fighting</option>
+                <option value = "type-poison">Poison</option>
+                <option value = "type-ground">Ground</option>
+                <option value = "type-flying">Flying</option>
+                <option value = "type-psyshic">Psychic</option>
+                <option value = "type-bug">Bug</option>
+                <option value = "type-rock">Rock</option>
+                <option value = "type-ghost">Ghost</option>
+                <option value = "type-dragon">Dragon</option>
+                <option value = "type-dark">Dark</option>
+                <option value = "type-steel">Steel</option>
+                <option value = "type-fairy">Fairy</option>
+            </select>
+            <button type="submit" id="submit-search-btn">Submit</button>
+        </form>
+
     </div>
     <div>
         <table>
