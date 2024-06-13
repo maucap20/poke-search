@@ -3,7 +3,7 @@ $('#back-button').on('click', () => {
 });
 
 const apiCallBtnEl = document.querySelector('#api-call-btn');
-const searchResultsEl = document.querySelector('#search-results');
+const searchResultsEl = document.querySelector('#TCG-search-results');
 
 const callPokemonTCGAPI = function () {
   const apiUrl = 'https://api.pokemontcg.io/v2/cards/xy1-1';
