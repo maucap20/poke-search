@@ -1,0 +1,18 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    margin: 2vh;
+    align-items: center;
+    flex-grow: 1;
+}
+
+header > h1{
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+header > button{
+    margin-left:  auto;
+}
+
