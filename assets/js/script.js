@@ -5,6 +5,9 @@ $('#back-button').on('click', () => {
 const apiCallBtnEl = document.querySelector('#api-call-btn');
 const searchResultsEl = document.querySelector('#TCG-search-results');
 
+// callPokemonTCGAPI
+// calls the TCG API to get a Pokemon card image
+// TODO: This will be used on the details page
 const callPokemonTCGAPI = function () {
   const apiUrl = 'https://api.pokemontcg.io/v2/cards/xy1-1';
   const apiKey = 'b66dce1b-c439-4ca5-a3b3-048672d9ddd1';
@@ -30,7 +33,9 @@ const callPokemonTCGAPI = function () {
       console.error(error);
     });
 };
-
+// Displays a card from the TCG API Call 
+// POC: this currently displays in an element called "searchResultsEl". When it moves to the
+// Details page, the element will be called something specific
 const displayCardData = function (data) {
   const card = data.data;
   const html = `
