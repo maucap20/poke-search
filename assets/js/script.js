@@ -1,16 +1,12 @@
-$('#back-button').on('click', () => {
-    window.location.assign("index.html");
-});
 // DEPENDENCIES
+const searchResultsTableEl = $('#searchResultsTableEl');
 
 // TCG - TODO: MOVE THIS TO THE DETAILS PAGE
 const apiCallBtnEl = document.querySelector('#api-call-btn');
 const tcgPokemonNameInputEl = document.querySelector('#tcg-pokemon-name');
 const searchResultsEl = document.querySelector('#TCG-search-results');
 
-// FOR SEARCH and SEARCH RESULTS
-const searchResultsTableEl = $('#searchResultsTableEl');
-
+// GLOBAL DATA
 
 // FUNCTIONS
 
@@ -52,11 +48,20 @@ function fetchStatsForResultRow(rowElement) {
   // update the 
 
 }
-function intersectObserve (elements) {
+
+// function observeSearchResultsRows()
+// purpose: enable "lazy loading" of details stats in search results
+// - observe when search results rows become visible
+// - when they become visible, call the function to fetch the details
+// - then remove the observer so that we don't fetch the details again
+function observeSearchResultsRows (elements) {
+  // "IntersectionObserver" in window means that the browser supports IntersectionObserver
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((items, observer) => {
       items.forEach((item) => {
+        //item.inIntersecting means showing on screen
         if (item.isIntersecting) {
+          // ********* this is the point of this function! fetch the details when the row comes on screen
           fetchStatsForResultRow(item.target);
           // now that we have the stats, stop observing so that we don't call the API again
           observer.unobserve(item.target);
@@ -64,11 +69,16 @@ function intersectObserve (elements) {
       });
     });
     elements.forEach((element) => {
+      // the code above created the observer. This attaches it to each search result row.
       observer.observe(element);
       log("observing element");
     });
   } else {
-    // no observer in browser, so brute force load all things even though it's slower.
+    // Deferred to post-MVP.
+    // if we're here, then ("IntersectionObserver" in window) was false and the browser
+    // does not support IntersectionBrowser. In that case, we would load everything even 
+    // however, this is an edge case, only applicable if someone is using an out-of-date
+    // browser. Deferred.
   }
 }
 
@@ -101,7 +111,7 @@ function loadSearchResultsTable() {
      searchResultsTableEl.append(resultRow);
    });
    const resultRows = document.querySelectorAll('.result-row-observed');
-   intersectObserve(resultRows);
+   observeSearchResultsRows(resultRows);
 }
 
 
@@ -176,7 +186,13 @@ function composeResultsRow(pokemon, index) {
     return resultRow;
 }
 
+//USER INTERACTIONS
 
+// TODO - move this to the pokemon-details.js because it does not apply to index.html
+// From Details page, on click of back button, return to index.html
+$('#back-button').on('click', () => {
+  window.location.assign("index.html");
+});
 
 apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
 
