@@ -167,6 +167,11 @@ function loadSearchResultsTable() {
 $('#back-button').on('click', () => {
   window.location.assign("index.html");
 });
+
+function showAndHideByType(event) {
+  log("Stub of showAndHideByType(): todo, implement the function");
+}
+
 apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
 typeSelectEl.on('change',showAndHideByType); 
 // INIT
