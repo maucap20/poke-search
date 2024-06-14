@@ -15,10 +15,10 @@ const searchResultsTableEl = $('#searchResultsTableEl');
 // FUNCTIONS
 
 // fetchPokedex()
-// calls PokeAPI to get an Pokedex of All 1302 pokemon (1302)
+// calls PokeAPI to get an Pokedex of all pokemon (1302)
 // stores them locally so that we can build on them
 function fetchPokedex() {
-  fetch(POKEAPI.URL_GET_INDEX_OF_ALL+"?limit=400", {
+  fetch(POKEAPI.URL_GET_INDEX_OF_ALL, {
   })
   .then(function (response) {
      if (response.ok) {
