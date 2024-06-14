@@ -13,7 +13,6 @@ fetch(requestAPI)
     setPokeName(pokedata);
 
     setPokedexData(pokedata);
-    console.log('okey');
 })
 
 
@@ -22,10 +21,10 @@ function setPokeName(data){
 }
 
 function setPokedexData(data){
-    console.log(data);
     $('#nat-num').text(data.id);
     
      $('#type').text(getType(data.types))
+    // Cannot find species data in api. Will change to a different value in API
     // $('#species').text()
     $('#height').text(data.height / 10 + 'm');
     $('#weight').text(data.weight / 10 + 'kg');
