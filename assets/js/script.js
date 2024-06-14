@@ -9,7 +9,6 @@ const tcgPokemonNameInputEl = document.querySelector('#tcg-pokemon-name');
 const searchResultsEl = document.querySelector('#TCG-search-results');
 
 // FOR SEARCH and SEARCH RESULTS
-const loadPokedexBtnEl = $('#load-pokedex-btn');
 const searchResultsTableEl = $('#searchResultsTableEl');
 
 
@@ -180,7 +179,6 @@ function composeResultsRow(pokemon, index) {
 
 
 apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
-loadPokedexBtnEl.on('click',loadSearchResultsTable);
 
 // INIT
 $(document).ready( function () {
