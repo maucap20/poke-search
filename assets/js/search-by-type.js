@@ -12,7 +12,7 @@ const API = "https://pokeapi.co/api/v2/type/";
 // EventHandler function: returns JSON for an array of Pokemon of the type specified in the typeInput field
  function callSearchByType(event) {    
    event.preventDefault();
-   const requestAPI = POKEAPI.URL_SEARCH_BY_TYPE + typeSelectEl.val();   
+   const requestAPI = POKEAPI.URL_SEARCH_BY_TYPE + typeSelectEl.val() + "?limit=500";   
    log(requestAPI);
    fetch(requestAPI)
    .then(function (response) {

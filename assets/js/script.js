@@ -9,7 +9,6 @@ const tcgPokemonNameInputEl = document.querySelector('#tcg-pokemon-name');
 const searchResultsEl = document.querySelector('#TCG-search-results');
 
 // FOR SEARCH and SEARCH RESULTS
-const fetchPokeStatsBtnEl = $('#fetch-pokestats-btn');
 const loadPokedexBtnEl = $('#load-pokedex-btn');
 const searchResultsTableEl = $('#searchResultsTableEl');
 
@@ -20,7 +19,7 @@ const searchResultsTableEl = $('#searchResultsTableEl');
 // calls PokeAPI to get an Pokedex of All 1302 pokemon (1302)
 // stores them locally so that we can build on them
 function fetchPokedex() {
-  fetch(POKEAPI.URL_GET_INDEX_OF_ALL, {
+  fetch(POKEAPI.URL_GET_INDEX_OF_ALL+"?limit=400", {
   })
   .then(function (response) {
      if (response.ok) {
@@ -30,13 +29,48 @@ function fetchPokedex() {
      }
    })
    .then(function (data) {
-     // store the Pokedex locally so that we can build on it and don't have to get it again
+    // store the Pokedex locally so that we can build on it and don't have to get it again
      localStorage.setItem(STRINGS.RAW_POKEDEX, JSON.stringify(data.results));
    })
    .catch(function (error) {
      alert('Unable to get Pokedex of Pokemon from PokeAPI');
      console.error(error);
    });
+}
+
+function fetchStatsForResultRow(rowElement) {
+  log("stub: fetchStatsForResultRow(). To Do: call details API to get stats");
+  // this function needs to get details and update them in two places
+  // update in pokedex, so we have them in case the page is refreshed
+  // update them in the <td>'s of the result row, so they are displayed onscreen
+  
+  // call details API with rowElement.url
+  // const details = data from API
+  // set attributes on the element for this row in the pokedex, i.e. pokedex[rowElement.index]
+  // e.g. pokedex[rowElement.index].hp = details.hp
+  // e.g. pokedex[rowElement.index].attack = details.attack
+  // etc
+  // update the 
+
+}
+function intersectObserve (elements) {
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((items, observer) => {
+      items.forEach((item) => {
+        if (item.isIntersecting) {
+          fetchStatsForResultRow(item.target);
+          // now that we have the stats, stop observing so that we don't call the API again
+          observer.unobserve(item.target);
+        }
+      });
+    });
+    elements.forEach((element) => {
+      observer.observe(element);
+      log("observing element");
+    });
+  } else {
+    // no observer in browser, so brute force load all things even though it's slower.
+  }
 }
 
 function loadSearchResultsTable() {
@@ -67,17 +101,8 @@ function loadSearchResultsTable() {
      const resultRow = composeResultsRow(pokemon, ii);
      searchResultsTableEl.append(resultRow);
    });
-}
-
-function fetchStatsIntoPokedex() {
-  const localPokedex = JSON.parse(localStorage.getItem(STRINGS.INDEX_IN_LOCAL_STORAGE));
-
-  localPokedex.forEach((pokemon, ii) => {
-    pokemon.setItem("type","type");
-  });
-
-  localStorage.setItem(STRINGS.INDEX_IN_LOCAL_STORAGE, localPokedex);
-
+   const resultRows = document.querySelectorAll('.result-row-observed');
+   intersectObserve(resultRows);
 }
 
 
@@ -140,7 +165,7 @@ const displayCardData = function (data) {
 //    pokemon:  a pokemon object
 //    index:    row number, used to create the <tr> element ID
 function composeResultsRow(pokemon, index) {
-  const resultRow = $(`<tr id="pokemon-${index}">
+  const resultRow = $(`<tr id="pokemon-${index}" class="result-row-observed">
       <td> ${pokemon.name}</td>
       <td> ${pokemon.type} </td>
       <td> ${pokemon.total} </td>
@@ -152,7 +177,13 @@ function composeResultsRow(pokemon, index) {
     return resultRow;
 }
 
-apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
 
-fetchPokeStatsBtnEl.on('click',fetchPokedex);
+
+apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
 loadPokedexBtnEl.on('click',loadSearchResultsTable);
+
+// INIT
+$(document).ready( function () {
+  fetchPokedex();
+  loadSearchResultsTable();
+});
