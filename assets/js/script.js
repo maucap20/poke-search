@@ -11,7 +11,7 @@ const searchResultsEl = document.querySelector('#TCG-search-results');
 // FOR SEARCH and SEARCH RESULTS
 const fetchPokeStatsBtnEl = $('#fetch-pokestats-btn');
 const loadPokedexBtnEl = $('#load-pokedex-btn');
-const searchResultsTableBody = $('#searchResultsTableBody');
+const searchResultsTableEl = $('#searchResultsTableEl');
 
 
 // FUNCTIONS
@@ -65,7 +65,7 @@ function loadSearchResultsTable() {
   // build the table of results
    localPokedex.forEach((pokemon, ii) => {
      const resultRow = composeResultsRow(pokemon, ii);
-     searchResultsTableBody.append(resultRow);
+     searchResultsTableEl.append(resultRow);
    });
 }
 
