@@ -12,7 +12,7 @@
 
 <body>
     <header>
-        <h1 id="pokeName"> Pokemon name section</h1>
+        <h1 id="pokeName"> Pokemon name</h1>
         <!-- Navigates back to html file, without filters preserved-->
          <!-- If time permits, let the filters preserve -->
         <button id = "back-button">To Main Page</button>
@@ -26,7 +26,8 @@
     <!-- Section for photo, pokedex data, training data, base stats, type defenses area -->
     <section>
         <section id = 'photo-box'>
-            <img src = "./assets/images/Pokémon_Bulbasaur_art.png" alt="Pokemon photo">
+             <img src = "./assets/images/Pokémon_Bulbasaur_art.png" id = "poke-photo" alt="Pokemon photo">
+            <!-- <img src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png" id = "poke-photo" alt="Pokemon photo"> -->
             
         </section>
 
@@ -98,58 +99,58 @@
             <table id="'stats-chart" style="width : 100%">
                 <tbody>
                     <th class="stat-name">HP</th>
-                    <td class="poke-growth-stat">val1</td>
+                    <td id="HP-growth-stat">val1</td>
                     <!-- <td class="stat-bar"></td> -->
-                    <td class="'poke-min-stat">val2</td>
-                    <td class="'poke-max-stat">val3</td>
+                    <td id="HP-min-stat">val2</td>
+                    <td id="HP-max-stat">val3</td>
                 </tbody>
 
                 <tbody>
                     <th class="stat-name">Attack</th>
-                    <td class="poke-growth-stat">val1</td>
+                    <td id="Atk-growth-stat">val1</td>
                     <!-- <td class="stat-bar"></td> -->
-                    <td class="'poke-min-stat">val2</td>
-                    <td class="'poke-max-stat">val3</td>
+                    <td id="Atk-min-stat">val2</td>
+                    <td id="Atk-max-stat">val3</td>
                 </tbody>
 
                 <tbody>
                     <th class="stat-name">Defense</th>
-                    <td class="poke-growth-stat">val1</td>
+                    <td id="Def-growth-stat">val1</td>
                     <!-- <td class="stat-bar"></td> -->
-                    <td class="'poke-min-stat">val2</td>
-                    <td class="'poke-max-stat">val3</td>
+                    <td id="Def-min-stat">val2</td>
+                    <td id="Def-max-stat">val3</td>
                 </tbody>
 
                 <tbody>
                     <th class="stat-name">Sp. Atk</th>
-                    <td class="poke-growth-stat">val1</td>
+                    <td id="SPAtk-growth-stat">val1</td>
                     <!-- <td class="stat-bar"></td> -->
-                    <td class="'poke-min-stat">val2</td>
-                    <td class="'poke-max-stat">val3</td>
+                    <td id="SPAtk-min-stat">val2</td>
+                    <td id="SPAtk-max-stat">val3</td>
                 </tbody>
 
                 <tbody>
                     <th class="stat-name">Sp. Def</th>
-                    <td class="poke-growth-stat">val1</td>
+                    <td id="SPDef-growth-stat">val1</td>
                     <!-- <td class="stat-bar"></td> -->
-                    <td class="'poke-min-stat">val2</td>
-                    <td class="'poke-max-stat">val3</td>
+                    <td id="SPDef-min-stat">val2</td>
+                    <td id="SPDef-max-stat">val3</td>
                 </tbody>
 
                 <tbody>
                     <th class="stat-name">Speed</th>
-                    <td class="poke-growth-stat">val1</td>
+                    <td id="spd-growth-stat">val1</td>
                     <!-- <td class="stat-bar"></td> -->
-                    <td class="'poke-min-stat">val2</td>
-                    <td class="'poke-max-stat">val3</td>
+                    <td id="spd-min-stat">val2</td>
+                    <td id="spd-max-stat">val3</td>
                 </tbody>
 
                 <tbody>
                     <th class="stat-name">Total</th>
-                    <td class="poke-growth-stat">Total val</td>
+                    <td id="tot-growth-stat">Total val</td>
                     
-                    <td class="'poke-min-stat">Min</td>
-                    <td class="'poke-max-stat">Max</td>
+                    <td id="tot-min-stat">Min</td>
+                    <td id="tot-max-stat">Max</td>
                 </tbody>
             </table>
         </div>
