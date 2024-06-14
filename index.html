@@ -26,7 +26,7 @@
                 </form>
 
                 <form id = "search-type-form">
-                    <select type="text" name="Search-Type" id="search-type-select">
+                    <select type="text" name="Search-Type" id="type-select">
                         <!-- possible change from value to id can be made if needed  -->
                         <option value> - All - </option>
                         <option value = "1">Normal</option>
@@ -62,8 +62,7 @@
                 <div id="TCG-search-results"></div>
             </div>
             <div>
-                <button id="load-pokedex-btn">Load Pokedex and Display</button>
-                <button id="fetch-pokestats-btn">Load Pokedex Stats and Display</button>
+                <h2>Search Results</h2>
                 <table id="searchResultsTable">
                     <thead class="searchResultsHeader">
                         <tr>
@@ -75,8 +74,8 @@
                             <td width="80px">Defense</td>
                         </tr>
                     </thead>
-                    <tbody id="searchResultsTableBody">
-
+                    <tbody id="searchResultsTableEl">
+                       <!-- on load, JS code appends search result rows here  -->
                     </tbody>
                 </table>
             </div>

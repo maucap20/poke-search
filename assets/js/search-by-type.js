@@ -2,7 +2,7 @@
 // NOTE - this file will be merged with search-type-button.js
 
 //DEPENDENCIES
-const typeSelect = $('#search-type-select');
+const typeSelectEl = $('#type-select');
 const submitSearchBtn = $('#search-type-btn');
 const searchResultsDIV = $('#searchResults');
 
@@ -12,7 +12,7 @@ const API = "https://pokeapi.co/api/v2/type/";
 // EventHandler function: returns JSON for an array of Pokemon of the type specified in the typeInput field
  function callSearchByType(event) {    
    event.preventDefault();
-   const requestAPI = POKEAPI.URL_SEARCH_BY_TYPE + typeSelect.val();   
+   const requestAPI = POKEAPI.URL_SEARCH_BY_TYPE + typeSelectEl.val() + "?limit=500";   
    log(requestAPI);
    fetch(requestAPI)
    .then(function (response) {
@@ -29,5 +29,9 @@ const API = "https://pokeapi.co/api/v2/type/";
    });
 }
 
-//typeSelect.on('change',callSearchByType); // we could also implement this to search whenever the select changes value
+function showAndHideByType(event) {
+  log("Stub of showAndHideByType(): todo, implement the function");
+}
+
+typeSelectEl.on('change',showAndHideByType); 
 submitSearchBtn.on('click',callSearchByType);
