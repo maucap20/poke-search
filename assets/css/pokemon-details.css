@@ -91,4 +91,15 @@ div > table{
     font-size: 20px;
 }
 
+.stat-bar{
+    width: 60vh;
+}
+
+.stat-bar > div{
+    background-color: red;
+    width: 50%;
+    height: 20px;
+}
+
+
 

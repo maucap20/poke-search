@@ -2,10 +2,7 @@
 
 
 
-const requestAPI = POKEAPI.URL_SEARCH_BY_NAME + '49'; 
-
-// const photoAPI = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' + '905' + '.png';
-// let photoAPI = "https://img.pokemondb.net/artwork/" + "darkrai" + ".jpg" ;
+const requestAPI = POKEAPI.URL_SEARCH_BY_NAME + '125'; 
 let photoAPI = "https://img.pokemondb.net/artwork/" ;
 
 
@@ -18,7 +15,6 @@ fetch(requestAPI)
 
     photoAPI += pokedata.name + ".jpg";
 
-    //Set Pokemon name section.
     setPokeName(pokedata);
     setPokedexData(pokedata);
     setStats(pokedata.stats);
@@ -79,26 +75,32 @@ function getAbil(data){
 function setStats(data){
     console.log(data);
     $('#HP-growth-stat').text(data[0].base_stat);
+    setBarLength('#HP-stat-bar', data[0].base_stat);
     $('#HP-min-stat').text(HPMinStatFormula(data[0].base_stat));
     $('#HP-max-stat').text(HPMaxStatFormula(data[0].base_stat));
 
     $('#Atk-growth-stat').text(data[1].base_stat);
+    setBarLength('#Atk-stat-bar', data[1].base_stat);
     $('#Atk-min-stat').text(otherMinStatFormula(data[1].base_stat));
     $('#Atk-max-stat').text(otherMaxStatFormula(data[1].base_stat));
 
     $('#Def-growth-stat').text(data[2].base_stat);
+    setBarLength('#Def-stat-bar', data[2].base_stat);
     $('#Def-min-stat').text(otherMinStatFormula(data[2].base_stat));
     $('#Def-max-stat').text(otherMaxStatFormula(data[2].base_stat));
 
     $('#SPAtk-growth-stat').text(data[3].base_stat);
+    setBarLength('#SPAtk-stat-bar', data[3].base_stat);
     $('#SPAtk-min-stat').text(otherMinStatFormula(data[3].base_stat));
     $('#SPAtk-max-stat').text(otherMaxStatFormula(data[3].base_stat));
 
     $('#SPDef-growth-stat').text(data[4].base_stat);
+    setBarLength('#SPDef-stat-bar', data[4].base_stat);
     $('#SPDef-min-stat').text(otherMinStatFormula(data[4].base_stat));
     $('#SPDef-max-stat').text(otherMaxStatFormula(data[4].base_stat));
 
     $('#spd-growth-stat').text(data[5].base_stat);
+    setBarLength('#spd-stat-bar', data[5].base_stat);
     $('#spd-min-stat').text(otherMinStatFormula(data[5].base_stat));
     $('#spd-max-stat').text(otherMaxStatFormula(data[5].base_stat));
 
@@ -106,6 +108,21 @@ function setStats(data){
     $('#tot-growth-stat').text(getTotalStat(data));
    
 
+}
+
+function setBarLength(id, base_stat){
+    let barLength = base_stat / 1.8;
+  
+    if(barLength < 30){
+        $(id).css('background-color', 'red');
+    }else if(barLength < 50){
+        $(id).css('background-color', 'yellow');
+    }else{
+        $(id).css('background-color', 'green');
+    }
+    
+
+    $(id).css('width', barLength+'%');
 }
 
 function getTotalStat(data){
