@@ -56,6 +56,7 @@ function getAbil(data){
     retStr.trim();
     retStr = retStr.substring(0,retStr.length-2);
     return retStr;
+}
 
 function setStats(data){
     console.log(data);
@@ -112,6 +113,7 @@ function otherMinStatFormula(gStat){
 
 function otherMaxStatFormula(gStat){
     return Math.floor((gStat*2+99)*1.1);
+}
 
 function setPokePhoto(pokedata){
     $('#poke-photo').attr("src",photoAPI);
