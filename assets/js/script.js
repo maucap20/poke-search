@@ -50,7 +50,7 @@ function loadSearchResultsTable() {
     const pokObject = {
       name: rawPokemon.name,
       url: rawPokemon.url,
-      type: 'a type!',
+      type: "type",
       total: "6",
       hp: "1",
       attack: "2",
