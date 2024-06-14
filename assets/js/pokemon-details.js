@@ -1,7 +1,7 @@
 //DEPENDENCIES
-const requestAPI = POKEAPI.URL_SEARCH_BY_NAME + '1024';   
-
-
+const requestAPI = POKEAPI.URL_SEARCH_BY_NAME + '1025';   
+// const photoAPI = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' + '905' + '.png';
+const photoAPI = "https://img.pokemondb.net/artwork/" + "pecharunt" + ".jpg" ;
 
 fetch(requestAPI)
 .then(function (response) {
@@ -12,16 +12,15 @@ fetch(requestAPI)
     //Set Pokemon name section.
     setPokeName(pokedata);
 
-
-
     setStats(pokedata.stats);
+    setPokePhoto(pokedata);
+
 })
 
 
 function setPokeName(data){
     $('#pokeName').text(data.name.toLocaleUpperCase());
 }
-
 
 function setStats(data){
     console.log(data);
@@ -78,4 +77,7 @@ function otherMinStatFormula(gStat){
 
 function otherMaxStatFormula(gStat){
     return Math.floor((gStat*2+99)*1.1);
+
+function setPokePhoto(pokedata){
+    $('#poke-photo').attr("src",photoAPI);
 }
