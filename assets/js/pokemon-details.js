@@ -2,9 +2,12 @@
 
 
 
-const requestAPI = POKEAPI.URL_SEARCH_BY_NAME + '1025';   
+const requestAPI = POKEAPI.URL_SEARCH_BY_NAME + '250'; 
+
 // const photoAPI = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' + '905' + '.png';
-const photoAPI = "https://img.pokemondb.net/artwork/" + "pecharunt" + ".jpg" ;
+// let photoAPI = "https://img.pokemondb.net/artwork/" + "darkrai" + ".jpg" ;
+let photoAPI = "https://img.pokemondb.net/artwork/" ;
+
 
 
 fetch(requestAPI)
@@ -13,9 +16,10 @@ fetch(requestAPI)
 }).then(function(data){
     const pokedata = data;
 
+    photoAPI += pokedata.name + ".jpg";
+
     //Set Pokemon name section.
     setPokeName(pokedata);
-
     setPokedexData(pokedata);
     setStats(pokedata.stats);
     setPokePhoto(pokedata);
@@ -32,8 +36,7 @@ function setPokedexData(data){
     $('#nat-num').text(data.id);
     
      $('#type').text(getType(data.types))
-    // Cannot find species data in api. Will change to a different value in API
-    // $('#species').text()
+    $('#held-items').text(getHeldItem(data.held_items))
     $('#height').text(data.height / 10 + 'm');
     $('#weight').text(data.weight / 10 + 'kg');
     $('#abilities').text(getAbil(data.abilities));
@@ -48,6 +51,15 @@ function getType(data){
     return retStr;
 }
 
+function getHeldItem(data){
+    let retStr = '';
+   
+    for(let i=0; i< data.length; i++){
+        retStr+=data[i].item.name+ " ";
+    }
+    return retStr;
+}
+
 function getAbil(data){
     let retStr = '';
     for(let i=0; i< data.length; i++){
@@ -56,6 +68,7 @@ function getAbil(data){
     retStr.trim();
     retStr = retStr.substring(0,retStr.length-2);
     return retStr;
+}
 
 function setStats(data){
     console.log(data);
@@ -112,7 +125,7 @@ function otherMinStatFormula(gStat){
 
 function otherMaxStatFormula(gStat){
     return Math.floor((gStat*2+99)*1.1);
-
+}
 function setPokePhoto(pokedata){
     $('#poke-photo').attr("src",photoAPI);
 }
