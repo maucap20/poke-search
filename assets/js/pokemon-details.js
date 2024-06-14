@@ -132,6 +132,7 @@ function otherMinStatFormula(gStat){
 function otherMaxStatFormula(gStat){
     return Math.floor((gStat*2+99)*1.1);
 }
+
 function setPokePhoto(pokedata){
     $('#poke-photo').attr("src",photoAPI);
 }
