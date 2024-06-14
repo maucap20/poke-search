@@ -104,9 +104,39 @@ function setStats(data){
 
 
     $('#tot-growth-stat').text(getTotalStat(data));
-   
+}
+
+// get details and update stats in the <td>'s of the result row
+function fetchStatsForResultRow(rowElement, rowIndex) {
+    // get the details url from the pokedex
+    const requestAPI = pokedex[rowIndex].url; 
+    
+    fetch(requestAPI)
+    .then(function (response) {
+        return response.json();
+    }).then(function(data){
+        setBriefStats(data, rowElement, rowIndex);
+    })
+  }
+
+// Sets brief stats on Main page
+function setBriefStats(data, rowElement, pokemonIndex){
+    const cells = rowElement.children;
+    log(pokemonIndex);
+    cells[MAIN_PAGE_COLUMNS.TYPE].textContent = getType(data.types);
+    cells[MAIN_PAGE_COLUMNS.TOTAL].textContent = getTotalStat(data.stats);
+    cells[MAIN_PAGE_COLUMNS.HP].textContent = data.stats[0].base_stat;
+    cells[MAIN_PAGE_COLUMNS.ATTACK].textContent = data.stats[1].base_stat;
+    cells[MAIN_PAGE_COLUMNS.DEFENSE].textContent = data.stats[2].base_stat;
+    cells[MAIN_PAGE_COLUMNS.SPEC_ATTACK].textContent = data.stats[3].base_stat;
+    cells[MAIN_PAGE_COLUMNS.SPEC_DEFENSE].textContent = data.stats[4].base_stat;
+    cells[MAIN_PAGE_COLUMNS.SPEED].textContent = data.stats[5].base_stat;
+    // this column contains the index number of the Pokemon in the Pokedex. 
+    // it may be useful for calling the Details API when this row is clicked
+    cells[MAIN_PAGE_COLUMNS.POKEMON_ID].textContent = pokemonIndex;
 
 }
+
 
 function getTotalStat(data){
     let tot = 0;
