@@ -2,7 +2,7 @@
 
 
 
-const requestAPI = POKEAPI.URL_SEARCH_BY_NAME + '49'; 
+const requestAPI = POKEAPI.URL_SEARCH_BY_NAME + '493'; 
 
 // const photoAPI = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' + '905' + '.png';
 // let photoAPI = "https://img.pokemondb.net/artwork/" + "darkrai" + ".jpg" ;
