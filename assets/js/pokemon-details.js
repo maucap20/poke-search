@@ -2,7 +2,7 @@
 
 
 
-const requestAPI = POKEAPI.URL_SEARCH_BY_NAME + '250'; 
+const requestAPI = POKEAPI.URL_SEARCH_BY_NAME + '49'; 
 
 // const photoAPI = 'https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/' + '905' + '.png';
 // let photoAPI = "https://img.pokemondb.net/artwork/" + "darkrai" + ".jpg" ;
@@ -48,6 +48,10 @@ function getType(data){
     for(let i=0; i< data.length; i++){
         retStr+=data[i].type.name+ " ";
     }
+
+    if(retStr===''){
+        retStr = "NONE";
+    }
     return retStr;
 }
 
@@ -55,8 +59,10 @@ function getHeldItem(data){
     let retStr = '';
    
     for(let i=0; i< data.length; i++){
-        retStr+=data[i].item.name+ " ";
+        retStr+=data[i].item.name+ ", ";
     }
+    retStr.trim();
+    retStr = retStr.substring(0,retStr.length-2);
     return retStr;
 }
 
