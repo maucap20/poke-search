@@ -1,3 +1,6 @@
+// Dependencies
+const typeSelectEl = $('#type-select');
+
 // Common data
 
 const POKEAPI = {

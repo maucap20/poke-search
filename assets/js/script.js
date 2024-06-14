@@ -194,8 +194,12 @@ $('#back-button').on('click', () => {
   window.location.assign("index.html");
 });
 
-apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
+function showAndHideByType(event) {
+  log("Stub of showAndHideByType(): todo, implement the function");
+}
 
+apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
+typeSelectEl.on('change',showAndHideByType); 
 // INIT
 $(document).ready( function () {
   fetchPokedex();
