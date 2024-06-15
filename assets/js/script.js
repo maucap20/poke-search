@@ -1,6 +1,5 @@
 // DEPENDENCIES
 const searchResultsTableEl = $('#searchResultsTableEl');
-const typeSelectEl = $('#type-select');
 
 // TCG - TODO: MOVE THIS TO THE DETAILS PAGE
 const apiCallBtnEl = document.querySelector('#api-call-btn');
@@ -8,24 +7,62 @@ const tcgPokemonNameInputEl = document.querySelector('#tcg-pokemon-name');
 const searchResultsEl = document.querySelector('#TCG-search-results');
 
 // GLOBAL DATA
-let pokedex = []; //holds all Pokemon data for the page
 
 // FUNCTIONS
+
+// fetchPokedex()
+// calls PokeAPI to get an Pokedex of all pokemon (1302)
+// stores them locally so that we can build on them
+function fetchPokedex() {
+  fetch(POKEAPI.URL_GET_INDEX_OF_ALL, {
+  })
+  .then(function (response) {
+     if (response.ok) {
+       return response.json();
+     } else {
+       alert(`Error fetching Pokedex of Pokemon: ${response.statusText}`);
+     }
+   })
+   .then(function (data) {
+    // store the Pokedex locally so that we can build on it and don't have to get it again
+     localStorage.setItem(STRINGS.RAW_POKEDEX, JSON.stringify(data.results));
+   })
+   .catch(function (error) {
+     alert('Unable to get Pokedex of Pokemon from PokeAPI');
+     console.error(error);
+   });
+}
+
+function fetchStatsForResultRow(rowElement) {
+  log("stub: fetchStatsForResultRow(). To Do: call details API to get stats");
+  // this function needs to get details and update them in two places
+  // update in pokedex, so we have them in case the page is refreshed
+  // update them in the <td>'s of the result row, so they are displayed onscreen
+  
+  // call details API with rowElement.url
+  // const details = data from API
+  // set attributes on the element for this row in the pokedex, i.e. pokedex[rowElement.index]
+  // e.g. pokedex[rowElement.index].hp = details.hp
+  // e.g. pokedex[rowElement.index].attack = details.attack
+  // etc
+  // update the 
+
+}
 
 // function observeSearchResultsRows()
 // purpose: enable "lazy loading" of details stats in search results
 // - observe when search results rows become visible
 // - when they become visible, call the function to fetch the details
 // - then remove the observer so that we don't fetch the details again
-function observeSearchResultsRows (elements, rowIndex) {
+function observeSearchResultsRows (elements) {
   // "IntersectionObserver" in window means that the browser supports IntersectionObserver
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((items, observer) => {
-      items.forEach((item, rowIndex) => {
-        //"isIntersecting" means "is visible on screen, i.e it was in the first page of data or we've reached it by scrolling down"
+      items.forEach((item) => {
+        //item.inIntersecting means showing on screen
         if (item.isIntersecting) {
           // ********* this is the point of this function! fetch the details when the row comes on screen
-          fetchStatsForResultRow(item.target, rowIndex);
+          fetchStatsForResultRow(item.target);
           // now that we have the stats, stop observing so that we don't call the API again
           observer.unobserve(item.target);
         }
@@ -44,6 +81,40 @@ function observeSearchResultsRows (elements, rowIndex) {
     // browser. Deferred.
   }
 }
+
+function loadSearchResultsTable() {
+  fetchPokedex(); // gets bare-bones data into raw pokedex and stores it
+  // get the raw pokedex from local storage. I tried returning the data from fetchPokedex(),
+  // to skip storing and retreiving the raw pokedex, but had trouble with that
+  const rawPokedex = JSON.parse(localStorage.getItem(STRINGS.RAW_POKEDEX));
+  const localPokedex = [];
+  
+  rawPokedex.forEach((rawPokemon, ii) => {
+    const pokObject = {
+      name: rawPokemon.name,
+      url: rawPokemon.url,
+      type: "type",
+      total: "6",
+      hp: "1",
+      attack: "2",
+      defense: "3"
+    };
+    localPokedex.push(pokObject);
+  });
+  
+  // store the Pokedex with the newly added stats
+  localStorage.setItem(STRINGS.POKEDEX_IN_LOCAL_STORAGE,JSON.stringify(localPokedex));
+  
+  // build the table of results
+   localPokedex.forEach((pokemon, ii) => {
+     const resultRow = composeResultsRow(pokemon, ii);
+     searchResultsTableEl.append(resultRow);
+   });
+   const resultRows = document.querySelectorAll('.result-row-observed');
+   observeSearchResultsRows(resultRows);
+}
+
+
 
 // callPokemonTCGAPI
 // calls the TCG API to get a Pokemon card image
@@ -105,59 +176,14 @@ const displayCardData = function (data) {
 function composeResultsRow(pokemon, index) {
   const resultRow = $(`<tr id="pokemon-${index}" class="result-row-observed">
       <td> ${pokemon.name}</td>
-      <td>  </td>
-      <td>  </td>
-      <td>  </td>
-      <td>  </td>
-      <td>  </td>
-      <td>  </td>
-      <td>  </td>
-      <td>  </td>
-      <td style="display: none">  </td>
-      <td style="display:none"> <!-- This should be speed but it doesn't work - I don't know why! --> </td>
+      <td> ${pokemon.type} </td>
+      <td> ${pokemon.total} </td>
+      <td> ${pokemon.hp} </td>
+      <td> ${pokemon.attack} </td>
+      <td> ${pokemon.defense} </td>
     </tr>
     `);
     return resultRow;
-}
-
-function showAndHideByType(event) {
-  log("Stub of showAndHideByType(): todo, implement the function");
-}
-
-// fetchPokedex()
-// calls PokeAPI to get an Pokedex of all pokemon (1302)
-// stores them locally so that we can build on them
-function initPage() {
-  fetch(POKEAPI.URL_GET_INDEX_OF_ALL, {
-  })
-  .then(function (response) {
-     if (response.ok) {
-       return response.json();
-     } else {
-       alert(`Error fetching Pokedex of Pokemon: ${response.statusText}`);
-     }
-   })
-   .then(function (data) {
-    // store the Pokedex locally so that we can build on it and don't have to get it again
-     //localStorage.setItem(STRINGS.RAW_POKEDEX, JSON.stringify(data.results));
-
-    pokedex = data.results;
-    loadSearchResultsTable();
-   })
-   .catch(function (error) {
-     alert('Unable to get Pokedex of Pokemon from PokeAPI');
-     console.error(error);
-   });
-}
-
-function loadSearchResultsTable() {
-  // build the table of results
-   pokedex.forEach((pokemon, ii) => {
-     const resultRow = composeResultsRow(pokemon, ii);
-     searchResultsTableEl.append(resultRow);
-   });
-   const resultRows = document.querySelectorAll('.result-row-observed');
-   observeSearchResultsRows(resultRows);
 }
 
 //USER INTERACTIONS
@@ -176,5 +202,6 @@ apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
 typeSelectEl.on('change',showAndHideByType); 
 // INIT
 $(document).ready( function () {
-  initPage();
+  fetchPokedex();
+  loadSearchResultsTable();
 });
