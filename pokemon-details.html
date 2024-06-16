@@ -25,60 +25,64 @@
 
     <!-- Section for photo, pokedex data, training data, base stats, type defenses area -->
     <section>
-        <section id = 'photo-box'>
-             <img src = "./assets/images/Pokémon_Bulbasaur_art.png" id = "poke-photo" alt="Pokemon photo">
-            <!-- <img src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png" id = "poke-photo" alt="Pokemon photo"> -->
-            
-        </section>
+        
 
         <!-- Location to add pokedex data -->
-        <div id = "pokedex-data">
-            <h2>Pokedex Data</h2>
-            <!--Add pokedex-data after reading data from server API   -->
-            <table id="pokedex-data-table">
-        
-                <tbody>
-                    <tr>
-                        <th>National No.</th>
-                        <td id="nat-num">
-                            0001
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Type</th>
-                        <td id="type">
-                            Grass Poison
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Held Items</th>
-                        <td id = 'held-items'>
-                            Item1, Item2
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Height</th>
-                        <td id = "height">
-                            0.7m
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Weight</th>
-                        <td id = 'weight'>
-                            6.9kg
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Abilities</th>
-                        <td id = 'abilities'>
-                            Overgrow, Chlorophyll
-                        </td>
-                    </tr>
-                </tbody>
+       <div>
+            <section id = 'photo-box'>
+                    <img src = "./assets/images/Pokémon_Bulbasaur_art.png" id = "poke-photo" alt="Pokemon photo">
+                <!-- <img src = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png" id = "poke-photo" alt="Pokemon photo"> -->
                 
-              </table>
-              
-        </div>
+            </section>
+            <div id = "pokedex-data">
+                <h2>Pokedex Data</h2>
+                <!--Add pokedex-data after reading data from server API   -->
+                <table id="pokedex-data-table">
+            
+                    <tbody>
+                        <tr>
+                            <th>National No.</th>
+                            <td id="nat-num">
+                                0001
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Type</th>
+                            <td id="type">
+                                Grass Poison
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Held Items</th>
+                            <td id = 'held-items'>
+                                Item1, Item2
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Height</th>
+                            <td id = "height">
+                                0.7m
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Weight</th>
+                            <td id = 'weight'>
+                                6.9kg
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Abilities</th>
+                            <td id = 'abilities'>
+                                Overgrow, Chlorophyll
+                            </td>
+                        </tr>
+                    </tbody>
+                    
+                </table>
+                
+            </div>
+       </div>
+        
 
         <!-- Location to add Training data -->
         <!-- <div>
@@ -93,7 +97,7 @@
         </div> -->
 
         <!-- Location to add stats -->
-        <div>
+        <div id="stats-container">
             <h2>Base Stats</h2>
             <!-- Add base stats after reading data from server API   -->
             <table id="'stats-chart" style="width : 100%">
