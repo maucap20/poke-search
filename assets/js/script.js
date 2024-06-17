@@ -101,7 +101,7 @@ const displayCardData = function (data) {
 //    pokemon:  a pokemon object
 //    index:    row number, used to create the <tr> element ID
 function composeResultsRow(pokemon, index) {
-  const resultRow = $(`<tr id="pokemon-${index}" class="result-row-observed">
+  const resultRow = $(`<tr id="pokemon-${index}" class="result-row-observed" onclick="handleRowClick(${index})">
       <td> ${pokemon.name}</td>
       <td>  </td>
       <td>  </td>
@@ -117,6 +117,15 @@ function composeResultsRow(pokemon, index) {
     `);
     return resultRow;
 }
+
+
+function handleRowClick(index) {
+  console.log(index+1);
+  localStorage.setItem('calledID', (index+1));
+  window.location.href = 'pokemon-details.html';
+}
+
+
 
 // fetchPokedex()
 // calls PokeAPI to get an Pokedex of all pokemon (1302)
