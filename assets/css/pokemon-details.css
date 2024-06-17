@@ -1,7 +1,4 @@
-*{
-    border-style: dashed;
-    border-color: red;
-}
+
 body > section > div{
     display: flex;
 }
@@ -31,7 +28,7 @@ header{
 #photo-box{
     width: 40%;
     padding-left: 2%;
-    /* border-right: 1px; */
+    padding-right: 2%;
   }
   
   /* Applicant photo setup */
@@ -43,6 +40,8 @@ header{
 
 #pokedex-data{
     width: 55%;
+    align-items: center;
+
 }
 
 header > h1{
@@ -66,6 +65,7 @@ header > button{
     /* border-color: inherit; */
 }
 #stats-container{
+    border-top: 4px solid aquamarine;
     width: 100%;
     
 }
@@ -75,20 +75,18 @@ header > button{
 }
 
 #pokedex-data-table th{
-    /* padding: 8px */
+    padding: 8px
 
 }
 
 #pokedex-data-table th{
-    /* color: #737373; */
+    /* color: grey; */
     font-weight: normal;
     text-align: right;
     padding-right: 10px;
 }
 
-#stats-chart {
-   font-size: 200px;
-}
+
 
 div > h2{
     font-size: 24px;
@@ -111,10 +109,10 @@ div > table{
 
 
 @media screen and (max-width: 900px) {
-    *{
+    /* *{
         border-style: dashed;
         border-color: blue;
-    }
+    } */
 
     body > section > div{
         display:block;

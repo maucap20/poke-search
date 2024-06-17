@@ -18,45 +18,56 @@
 
     <main>
         <section>
-            <div>
-                <h2>Filter the list of Pokemon by name or type</h2>
-                <form id = "search-name-form">
-                    <input type="text" name="Search-Name" id = "search-type-select" placeholder = "Search Pokemon Name">
-                </form>
+            
+            <div id = "search-result">
+           
+                    <div id="search-bar">
+                        <h2>Filter the list of Pokemon by name or type</h2>
+                        <form id = "search-name-form">
+                            <input type="text" name="Search-Name" id = "search-type-select" placeholder = "Search Pokemon Name">
+                        </form>
+                        <form id = "search-type-form">
+                            <select type="text" name="Search-Type" id="type-select">
+                                <option value> - All - </option>
+                                <option value = "1">Normal</option>
+                                <option value = "2">Fighting</option>
+                                <option value = "3">Flying</option>
+                                <option value = "4">Poison</option>
+                                <option value = "5">Ground</option>
+                                <option value = "6">Rock</option>
+                                <option value = "7">Bug</option>
+                                <option value = "8">Ghost</option>
+                                <option value = "9">Steel</option>
+                                <option value = "10">Fire</option>
+                                <option value = "11">Water</option>
+                                <option value = "12">Grass</option>
+                                <option value = "13">Electric</option>
+                                <option value = "14">Psychic</option>
+                                <option value = "15">Ice</option>
+                                <option value = "16">Dragon</option>
+                                <option value = "17">Dark</option>
+                                <option value = "18">Fairy</option>
+                                <option value = "19">Unknown</option>
+                                <option value = "20">Shadow</option>
+                            </select>
+                        </form>
 
-                <form id = "search-type-form">
-                    <select type="text" name="Search-Type" id="type-select">
-                        <option value> - All - </option>
-                        <option value = "1">Normal</option>
-                        <option value = "2">Fighting</option>
-                        <option value = "3">Flying</option>
-                        <option value = "4">Poison</option>
-                        <option value = "5">Ground</option>
-                        <option value = "6">Rock</option>
-                        <option value = "7">Bug</option>
-                        <option value = "8">Ghost</option>
-                        <option value = "9">Steel</option>
-                        <option value = "10">Fire</option>
-                        <option value = "11">Water</option>
-                        <option value = "12">Grass</option>
-                        <option value = "13">Electric</option>
-                        <option value = "14">Psychic</option>
-                        <option value = "15">Ice</option>
-                        <option value = "16">Dragon</option>
-                        <option value = "17">Dark</option>
-                        <option value = "18">Fairy</option>
-                        <option value = "19">Unknown</option>
-                        <option value = "20">Shadow</option>
-                    </select>
-                </form>
-            </div>
-<!-- TODO: MOVE THIS POC DIV OUT OF THIS PAGE -->
-            <div>
-                <h2>POC - card from TCG API shows up here</h2>
-                <input type="text" id="tcg-pokemon-name" placeholder="Search TCG by key word">
-                <button id="api-call-btn">Display PokemonTCG card</button>
+                    </div>
+                   
+    
+                    
+              
+                <!-- TODO: MOVE THIS POC DIV OUT OF THIS PAGE -->
+                
+                <div id = "card-display">
+                    <h2>POC - card from TCG API shows up here</h2>
+                    <input type="text" id="tcg-pokemon-name" placeholder="Search TCG by key word">
+                    <button id="api-call-btn">Display PokemonTCG card</button>
+                </div>
                 <div id="TCG-search-results"></div>
+                
             </div>
+
             <div id="search-results-container">
                 <h2>Search Results</h2>
                 <table id="searchResultsTable">
@@ -83,7 +94,7 @@
         </section>
     </main>
     <footer>
-        <p>This is the Footer</p>
+        Pokemon Search Engine by Group 5
     </footer>
 
   <!-- Add JQuery library -->
