@@ -123,7 +123,7 @@ function fetchStatsForResultRow(rowElement, rowIndex) {
 // Sets brief stats on Main page
 function setBriefStats(data, rowElement, pokemonIndex){
     const cells = rowElement.children;
-    console.log(pokemonIndex);
+
     cells[MAIN_PAGE_COLUMNS.TYPE].textContent = getType(data.types);
     cells[MAIN_PAGE_COLUMNS.TOTAL].textContent = getTotalStat(data.stats);
     cells[MAIN_PAGE_COLUMNS.HP].textContent = data.stats[0].base_stat;
