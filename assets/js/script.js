@@ -136,6 +136,10 @@ function initPage() {
      //localStorage.setItem(STRINGS.RAW_POKEDEX, JSON.stringify(data.results));
 
     pokedex = data.results;
+    // Capitalize the first letter of the name
+    for (let ii = 0; ii< pokedex.length; ++ii)
+      pokedex[ii].name = firstLetterCapitalize(pokedex[ii].name);
+
     loadSearchResultsTable();
    })
    .catch(function (error) {
