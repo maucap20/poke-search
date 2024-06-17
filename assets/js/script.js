@@ -170,10 +170,6 @@ function showAndHideByType(event) {
   console.log("Stub of showAndHideByType(): todo, implement the function");
 }
 
-function showAndHideByType(event) {
-  console.log("Stub of showAndHideByType(): todo, implement the function");
-}
-
 apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
 typeSelectEl.on('change',showAndHideByType); 
 // INIT
