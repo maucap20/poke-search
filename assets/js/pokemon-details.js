@@ -2,9 +2,13 @@
 
 
 
-const requestAPI = POKEAPI.URL_SEARCH_BY_NAME + '125'; 
+let requestAPI = POKEAPI.URL_SEARCH_BY_NAME; 
 let photoAPI = "https://img.pokemondb.net/artwork/" ;
 
+console.log(localStorage.getItem('calledID'));
+const pokeIndex = localStorage.getItem('calledID');
+requestAPI+=pokeIndex;
+console.log(requestAPI);
 
 
 fetch(requestAPI)
