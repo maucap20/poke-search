@@ -42,12 +42,9 @@ function getType(data){
     let retStr = '';
    
     for(let i=0; i< data.length; i++){
-        retStr+=data[i].type.name+ " ";
+        retStr+=firstLetterCapitalize(data[i].type.name)+ " ";
     }
 
-    if(retStr===''){
-        retStr = "NONE";
-    }
     return retStr;
 }
 
@@ -55,7 +52,7 @@ function getHeldItem(data){
     let retStr = '';
    
     for(let i=0; i< data.length; i++){
-        retStr+=data[i].item.name+ ", ";
+        retStr+=firstLetterCapitalize(data[i].item.name)+ ", ";
     }
     retStr.trim();
     retStr = retStr.substring(0,retStr.length-2);
@@ -65,7 +62,7 @@ function getHeldItem(data){
 function getAbil(data){
     let retStr = '';
     for(let i=0; i< data.length; i++){
-        retStr+=data[i].ability.name+ ", ";
+        retStr+=firstLetterCapitalize(data[i].ability.name)+ ", ";
     }
     retStr.trim();
     retStr = retStr.substring(0,retStr.length-2);

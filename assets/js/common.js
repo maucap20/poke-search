@@ -26,3 +26,10 @@ const STRINGS = {
 }
 // utility functions
 function log(msg) { console.log(msg);}
+
+
+function firstLetterCapitalize(string){
+    let retString = string[0].toUpperCase();
+    retString+=string.substring(1);
+    return retString;
+}
