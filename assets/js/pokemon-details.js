@@ -10,7 +10,7 @@ const pokeIndex = localStorage.getItem('calledID');
 requestAPI+=pokeIndex;
 console.log(requestAPI);
 
-
+// Fetch datas
 fetch(requestAPI)
 .then(function (response) {
     return response.json();
@@ -27,11 +27,13 @@ fetch(requestAPI)
 
 })
 
-
+// Function to set Pokemon name
 function setPokeName(data){
     $('#pokeName').text(data.name.toLocaleUpperCase());
 }
 
+
+// Function to set pokedex data
 function setPokedexData(data){
     $('#nat-num').text(data.id);
     
@@ -42,6 +44,7 @@ function setPokedexData(data){
     $('#abilities').text(getAbil(data.abilities));
 }
 
+// Function to get types
 function getType(data){
     let retStr = '';
    
@@ -52,6 +55,7 @@ function getType(data){
     return retStr;
 }
 
+// Function to set held items
 function getHeldItem(data){
     let retStr = '';
    
@@ -63,6 +67,7 @@ function getHeldItem(data){
     return retStr;
 }
 
+// Function to get abilities
 function getAbil(data){
     let retStr = '';
     for(let i=0; i< data.length; i++){
@@ -73,6 +78,7 @@ function getAbil(data){
     return retStr;
 }
 
+// Function to set Stats
 function setStats(data){
     $('#HP-growth-stat').text(data[0].base_stat);
     setBarLength('#HP-stat-bar', data[0].base_stat);
@@ -139,7 +145,7 @@ function setBriefStats(data, rowElement, pokemonIndex){
 
 }
 
-
+// Function to set bar length and put colora.
 function setBarLength(id, base_stat){
     let barLength = base_stat / 1.8;
   
