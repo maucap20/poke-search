@@ -45,7 +45,9 @@
     background-color: lightskyblue;
   }
  
-
+.hidden-row{
+  display: none;
+}
 
 
 

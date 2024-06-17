@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const searchResultsTableEl = $('#searchResultsTableEl');
 const typeSelectEl = $('#type-select');
+const searchNameSelectEl = $('#search-type-select');
 
 // TCG - TODO: MOVE THIS TO THE DETAILS PAGE
 const apiCallBtnEl = document.querySelector('#api-call-btn');
@@ -34,6 +35,7 @@ function observeSearchResultsRows (elements, rowIndex) {
     elements.forEach((element) => {
       // the code above created the observer. This attaches it to each search result row.
       observer.observe(element);
+      console.log("observing element");
     });
   } else {
     // Deferred to post-MVP.
@@ -69,6 +71,7 @@ const callPokemonTCGAPI = function () {
       }
     })
     .then(function (data) {
+      console.log(data);
       displayCardData(data);
     })
     .catch(function (error) {
@@ -117,6 +120,24 @@ function composeResultsRow(pokemon, index) {
     `);
     return resultRow;
 }
+
+
+function filterPokemon(searchString) {
+  const searchStringLower = searchString.toLowerCase();
+  $('#searchResultsTableEl tr').each(function() {
+    const pokemonName = $(this).find('td:first').text().toLowerCase();
+    if (pokemonName.includes(searchStringLower)) {
+      $(this).removeClass('hidden-row');
+    } else {
+      $(this).addClass('hidden-row');
+    }
+  });
+}
+
+function showAndHideByType(event) {
+  console.log("Stub of showAndHideByType(): todo, implement the function");
+}
+
 
 
 function handleRowClick(index) {
@@ -175,13 +196,10 @@ $('#back-button').on('click', () => {
   window.location.assign("index.html");
 });
 
-function showAndHideByType(event) {
-  console.log("Stub of showAndHideByType(): todo, implement the function");
-}
-
-function showAndHideByType(event) {
-  console.log("Stub of showAndHideByType(): todo, implement the function");
-}
+searchNameSelectEl.on('input', function () {
+  const searchString = $(this).val();
+  filterPokemon(searchString);
+});
 
 apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
 typeSelectEl.on('change',showAndHideByType); 
