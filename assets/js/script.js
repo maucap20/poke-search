@@ -69,7 +69,6 @@ const callPokemonTCGAPI = function () {
       }
     })
     .then(function (data) {
-      console.log(data);
       displayCardData(data);
     })
     .catch(function (error) {
