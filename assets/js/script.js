@@ -27,6 +27,7 @@ function observeSearchResultsRows (elements, rowIndex) {
           // ********* this is the point of this function! fetch the details when the row comes on screen
           fetchStatsForResultRow(item.target, rowIndex);
           // now that we have the stats, stop observing so that we don't call the API again
+          // ToDo: can we toggle visibility by type or name as rows load?
           observer.unobserve(item.target);
         }
       });
