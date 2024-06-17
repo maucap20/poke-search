@@ -12,20 +12,20 @@
 
 <body>
 
-    <header>This is the Header</header>
+    <header>
+        <h1>PokeSearch</h1>
+    </header>
 
     <main>
-        <h1>PokeSearch</h1>
         <section>
             <div>
-                <h2>Search buttons</h2>
+                <h2>Filter the list of Pokemon by name or type</h2>
                 <form id = "search-name-form">
                     <input type="text" name="Search-Name" id = "search-type-select" placeholder = "Search Pokemon Name">
                 </form>
 
                 <form id = "search-type-form">
                     <select type="text" name="Search-Type" id="type-select">
-                        <!-- possible change from value to id can be made if needed  -->
                         <option value> - All - </option>
                         <option value = "1">Normal</option>
                         <option value = "2">Fighting</option>
@@ -45,7 +45,6 @@
                         <option value = "16">Dragon</option>
                         <option value = "17">Dark</option>
                         <option value = "18">Fairy</option>
-                        <!-- the last two option is in pokeapi but not in pokedb. bit confused, but will still put it for insurance -->
                         <option value = "19">Unknown</option>
                         <option value = "20">Shadow</option>
                     </select>
@@ -58,7 +57,7 @@
                 <button id="api-call-btn">Display PokemonTCG card</button>
                 <div id="TCG-search-results"></div>
             </div>
-            <div>
+            <div id="search-results-container">
                 <h2>Search Results</h2>
                 <table id="searchResultsTable">
                     <thead class="searchResultsHeader">

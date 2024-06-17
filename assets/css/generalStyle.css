@@ -26,8 +26,16 @@
     margin: 1px;
   }
 
+  header, footer {
+    height: 50px
+  }
   /* *********** */
   /* body styles */
+  #search-results-container {
+    height: 640px;
+    overflow: scroll;
+  }
+  
   #searchResultsTable {
     border: solid 1px grey;
     margin: 5px 0 5px 0;
