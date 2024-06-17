@@ -1,7 +1,7 @@
 // DEPENDENCIES
 const searchResultsTableEl = $('#searchResultsTableEl');
 const typeSelectEl = $('#type-select');
-const searchTypeSelectEl = $('#search-type-select');
+const searchNameSelectEl = $('#search-type-select');
 
 // TCG - TODO: MOVE THIS TO THE DETAILS PAGE
 const apiCallBtnEl = document.querySelector('#api-call-btn');
@@ -122,13 +122,14 @@ function composeResultsRow(pokemon, index) {
 }
 
 function filterPokemon(searchString) {
-  searchResultsTableEl.empty();
-  const filteredPokemon = pokedex.filter(pokemon => pokemon.name.toLowerCase().includes(searchString.toLowerCase()));
-  // const notMatchingName = pokedex.filter(pokemon => !pokemon.name.toLowerCase().includes(searchString.toLowerCase()));
-  // console.log(notMatchingName)
-  filteredPokemon.forEach((pokemon, ii) => {
-    const resultRow = composeResultsRow(pokemon, ii);
-    searchResultsTableEl.append(resultRow);
+  const searchStringLower = searchString.toLowerCase();
+  $('#searchResultsTableEl tr').each(function() {
+    const pokemonName = $(this).find('td:first').text().toLowerCase();
+    if (pokemonName.includes(searchStringLower)) {
+      $(this).removeClass('hidden-row');
+    } else {
+      $(this).addClass('hidden-row');
+    }
   });
 }
 
@@ -180,7 +181,7 @@ $('#back-button').on('click', () => {
   window.location.assign("index.html");
 });
 
-searchTypeSelectEl.on('input', function () {
+searchNameSelectEl.on('input', function () {
   const searchString = $(this).val();
   filterPokemon(searchString);
 });
