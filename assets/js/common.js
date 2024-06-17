@@ -24,9 +24,6 @@ const STRINGS = {
     POKEDEX_IN_LOCAL_STORAGE: "localPokedex",
     RAW_POKEDEX: "rawPokedex"
 }
-// utility functions
-function log(msg) { console.log(msg);}
-
 
 function firstLetterCapitalize(string){
     let retString = string[0].toUpperCase();
