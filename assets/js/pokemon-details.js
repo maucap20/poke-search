@@ -73,7 +73,6 @@ function getAbil(data){
 }
 
 function setStats(data){
-    console.log(data);
     $('#HP-growth-stat').text(data[0].base_stat);
     setBarLength('#HP-stat-bar', data[0].base_stat);
     $('#HP-min-stat').text(HPMinStatFormula(data[0].base_stat));
@@ -124,7 +123,7 @@ function fetchStatsForResultRow(rowElement, rowIndex) {
 // Sets brief stats on Main page
 function setBriefStats(data, rowElement, pokemonIndex){
     const cells = rowElement.children;
-    log(pokemonIndex);
+
     cells[MAIN_PAGE_COLUMNS.TYPE].textContent = getType(data.types);
     cells[MAIN_PAGE_COLUMNS.TOTAL].textContent = getTotalStat(data.stats);
     cells[MAIN_PAGE_COLUMNS.HP].textContent = data.stats[0].base_stat;
