@@ -1,0 +1,48 @@
+header{
+    display: flex;
+    height: 6vh;
+    justify-content: center;
+    font-size: 36px;
+    align-items: center;
+    border-style: solid;
+    border-color: aquamarine;
+}
+
+main  >section{
+    /* display: flex; */
+
+}
+
+#search-result{
+    display: flex;
+}
+
+#search-bar{
+    display: flex;
+    height: 20vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* #card-display{
+    display: flex;
+    height: 20vh;
+    justify-content: center;
+    align-items: center;
+} */
+
+#search-results-container{
+    padding: 20px;
+    /* border-style: solid; */
+    border-top:1px solid aquamarine;
+    /* border-color: aquamarine; */
+}
+
+.searchResultsHeader{
+    width: 100%;
+}
+
+.searchResultsHeader > tr{
+    width: 100%;
+    
+}

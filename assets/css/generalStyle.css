@@ -4,6 +4,7 @@
 
 :root{
     --text-color: black;
+    --background-color:lightblue;
   }
 
 * {
@@ -22,7 +23,7 @@
   /* while we are developing sections, put a border around 
   some divs just to clarify what's what */
   header, footer, section div {
-    border: solid 2px lightgray;
+    /* border: solid 2px lightgray; */
     margin: 1px;
   }
 
