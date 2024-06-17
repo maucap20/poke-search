@@ -167,7 +167,21 @@ $('#back-button').on('click', () => {
 });
 
 function showAndHideByType(event) {
-  console.log("Stub of showAndHideByType(): todo, implement the function");
+  
+  const searchResultRows = searchResultsTableEl.children();
+  const chosenType = event.target.value;
+
+  for (let ii = 0; ii < searchResultRows.length; ++ii) {
+    const currentRow = searchResultRows[ii];
+  
+    const typeCell = currentRow.children[MAIN_PAGE_COLUMNS.TYPE];
+    console.log(typeCell.textContent)
+
+    if (typeCell.textContent.includes(chosenType)) {
+      currentRow.classList.remove('hidden');
+    } else
+    currentRow.classList.add('hidden');
+  }
 }
 
 apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
