@@ -25,7 +25,7 @@ const STRINGS = {
     RAW_POKEDEX: "rawPokedex"
 }
 
-function firstLetterCapitalize(string){
+function firstLetterCapitalize(string) {
     let retString = string[0].toUpperCase();
     retString+=string.substring(1);
     return retString;

@@ -34,7 +34,6 @@ function observeSearchResultsRows (elements, rowIndex) {
     elements.forEach((element) => {
       // the code above created the observer. This attaches it to each search result row.
       observer.observe(element);
-      log("observing element");
     });
   } else {
     // Deferred to post-MVP.
@@ -70,7 +69,6 @@ const callPokemonTCGAPI = function () {
       }
     })
     .then(function (data) {
-      console.log(data);
       displayCardData(data);
     })
     .catch(function (error) {
@@ -120,10 +118,6 @@ function composeResultsRow(pokemon, index) {
     return resultRow;
 }
 
-function showAndHideByType(event) {
-  log("Stub of showAndHideByType(): todo, implement the function");
-}
-
 // fetchPokedex()
 // calls PokeAPI to get an Pokedex of all pokemon (1302)
 // stores them locally so that we can build on them
@@ -169,7 +163,11 @@ $('#back-button').on('click', () => {
 });
 
 function showAndHideByType(event) {
-  log("Stub of showAndHideByType(): todo, implement the function");
+  console.log("Stub of showAndHideByType(): todo, implement the function");
+}
+
+function showAndHideByType(event) {
+  console.log("Stub of showAndHideByType(): todo, implement the function");
 }
 
 apiCallBtnEl.addEventListener('click', callPokemonTCGAPI);
