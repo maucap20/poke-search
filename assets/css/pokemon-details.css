@@ -2,6 +2,9 @@
     border-style: dashed;
     border-color: red;
 }
+body > section > div{
+    display: flex;
+}
 
 #photo-box{
     width: 40%;
@@ -17,9 +20,12 @@
 
 
 header{
-    *{
-    border-style: dashed;
-    border-color: red;
+  
+    display: flex;
+    justify-content: space-between;
+    margin: 2vh;
+    align-items: center;
+    flex-grow: 1;
 }
 
 #photo-box{
@@ -35,11 +41,8 @@ header{
   }
 
 
-    display: flex;
-    justify-content: space-between;
-    margin: 2vh;
-    align-items: center;
-    flex-grow: 1;
+#pokedex-data{
+    width: 55%;
 }
 
 header > h1{
@@ -53,6 +56,7 @@ header > button{
 }
 
 #pokedex-data-table{
+    width: 100%;
     font-size: 20px;
     border-collapse: collapse;
     line-height: 1.5;
@@ -61,7 +65,10 @@ header > button{
     /* vertical-align: middle; */
     /* border-color: inherit; */
 }
-
+#stats-container{
+    width: 100%;
+    
+}
 #pokedex-data-table tr{
     border-bottom: 1px solid black;
 
@@ -103,3 +110,21 @@ div > table{
 
 
 
+@media screen and (max-width: 900px) {
+    *{
+        border-style: dashed;
+        border-color: blue;
+    }
+
+    body > section > div{
+        display:block;
+    }
+    
+    #pokedex-data{
+        width: 100%;
+    }
+
+    #photo-box{
+        width: 100%;
+      }
+}
