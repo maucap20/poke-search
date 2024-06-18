@@ -121,7 +121,6 @@ function composeResultsRow(pokemon, index) {
     return resultRow;
 }
 
-
 function filterPokemon(searchString) {
   const searchStringLower = searchString.toLowerCase();
   $('#searchResultsTableEl tr').each(function() {
