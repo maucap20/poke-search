@@ -138,17 +138,15 @@ function showAndHideByType(event) {
   console.log("Stub of showAndHideByType(): todo, implement the function");
 }
 
-
-
+// handleRowClick(index)
+// On click of a search result row, store the ID of the chosen Pokemon and go to the 
+// details page, where the ID is used to fetch details about the chosen Pokemon
 function handleRowClick(index) {
-  console.log(index+1);
   localStorage.setItem('calledID', (index+1));
   window.location.href = 'pokemon-details.html';
 }
 
-
-
-// fetchPokedex()
+// initPage()
 // calls PokeAPI to get an Pokedex of all pokemon (1302)
 // stores them locally so that we can build on them
 function initPage() {
